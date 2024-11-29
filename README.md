@@ -1,1 +1,1 @@
-This is my first front-end web development project. It's a responsive website for a tour agency called Central Tours, located in Mazatlan, Mexico.
+Welcome to the repository for Central Tours, a responsive website designed for a tour agency located in Mazatlán, Mexico.
