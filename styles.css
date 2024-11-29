@@ -1,0 +1,335 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&display=swap');
+
+/* ------------------- Global Reset ------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* ------------------- Common Layout Styles ------------------- */
+.flex {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* ------------------- CSS Variables ------------------- */
+:root {
+    --extra-light: #ffffff;
+    --primary-color: #ff6347;
+}
+
+/* ------------------- Navigation Styles ------------------- */
+
+/* Nav Header */
+.nav__header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 3px;
+    z-index: 1000;
+    background-color: white;
+    border-bottom: 1px solid rgba(51, 54, 82, 0.1);
+}
+
+/* Logo Container */
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Logo Image */
+.logo-image {
+    width: 85px;
+    height: auto;
+    margin-left: 5px;
+    margin-top: 3px;
+}
+
+/* Menu Button */
+.nav_menu_button {
+    font-size: 24px;
+    cursor: pointer;
+    color: #333652;
+    margin-top: 10px;
+    margin-left: 5px;
+    background: none;
+    position: absolute;
+    right: 20px;
+    top: 23px;
+}
+
+/* Navigation Links (default hidden) */
+.nav_links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    position: fixed;
+    top: 0;
+    left: -10px;
+    width: 100%;
+    height: 70%;
+    list-style: none;
+    gap: 15px;
+    background-color: transparent;
+    transition: transform 0.5s;
+    z-index: 1100;
+    transform: translateY(-120%);
+}
+
+/* Show Navigation Links when open */
+.nav_links.open {
+    transform: translateY(0);
+}
+
+/* Nav Links List Items */
+.nav_links li {
+    margin: 0;
+}
+
+/* Nav Links Styling */
+.nav_links a {
+    text-decoration: none;
+    color: #29577E; /* Default color */
+    font-size: 16px;
+    font-family: 'Manjari', sans-serif;
+    font-weight: 700;
+}
+
+/* Hover effect on links */
+.nav_links a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* ------------------- Header and Section Styles ------------------- */
+
+/* Universal header styling for h1 & h2 */
+.section__container.header__container h1,
+.section__container.header__container h2 {
+    font-family: 'Manjari', sans-serif;
+    color: white;
+}
+
+/* ------------------- Media Queries ------------------- */
+
+/* For screens larger than 768px */
+@media (min-width: 768px) {
+    /* Navigation styles */
+    nav {
+        position: static;
+        padding: 2rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    .nav__header {
+        padding: 0;
+        background-color: transparent;
+        border: none;
+    }
+
+    .nav_menu_button {
+        display: none; /* Hide menu button */
+    }
+
+    .nav_links {
+        position: static;
+        padding: 0;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 3rem;
+        background-color: transparent;
+        transform: none;
+        border: none;
+    }
+
+    /* Header Section */
+    .section__container.header__container {
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+        z-index: 1;
+    }
+
+    .section__container.header__container h1 {
+        font-size: 18px;
+        margin-top: 12px;
+    }
+
+    .section__container.header__container h2 {
+        font-size: 14px;
+        margin-top: 0;
+    }
+
+    /* Header Background */
+    .header {
+        height: 60px;
+    }
+}
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+    /* Navigation links styling */
+    .nav_links {
+        align-items: flex-end;
+    }
+
+    .nav_links a {
+        color: #29577E; /* Keep links white for smaller screens */
+        font-size: 12px;
+    }
+
+    /* Header Section */
+    .section__container.header__container {
+        display: block;
+        z-index: 10;
+        margin-top: 105px;
+        margin-left: 10px;
+        background-color: transparent;
+        width: 350px;
+        height: auto;
+        position: absolute;
+        left: -12px;
+    }
+
+    .section__container.header__container h1,
+    .section__container.header__container h2 {
+        display: block;
+        margin-left: 10px;
+        font-size: calc(10px + 1vw);
+    }
+
+    .section__container.header__container h2 {
+        font-size: calc(7px + 1vw);
+    }
+
+    /* Header Background */
+    .header {
+        height: 150px;
+    }
+}
+
+/* For exactly 768px width */
+@media (width: 768px) {
+    /* Force the header height to 60px */
+    .header {
+        height: 60px !important;
+        width: 100% !important; /* Ensure full width */
+    }
+
+    /* Adjust header container */
+    .section__container.header__container {
+        display: block;
+        z-index: 10;
+        margin-top: 10px;
+        margin-left: 10px;
+        background-color: transparent;
+        width: 350px;
+        height: auto;
+        position: absolute;
+        left: -12px;
+    }
+
+    .section__container.header__container h1,
+    .section__container.header__container h2 {
+        font-size: 18px; /* Consistent font size */
+        margin-left: 10px;
+        margin-top: 0; /* Ensure no extra top margin */
+    }
+
+    .section__container.header__container h2 {
+        font-size: 14px;
+    }
+
+    /* Nav Links Color */
+    .nav_links a {
+        color: #29577E; /* Blue color for exactly 768px screen width */
+        font-size: 16px;
+    }
+}
+
+/* ------------------- Header Background Styles ------------------- */
+.header {
+    background-color: #29577E;
+    height: 200px;
+    position: relative;
+    width: 100%;
+}
+
+/* For screens larger than 768px */
+@media (min-width: 768px) {
+    .header {
+        height: 60px; /* Set a smaller height for larger screens */
+    }
+}
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+    .header {
+        height: 150px; /* Consistent height for smaller screens */
+    }
+}
+
+/* Responsive Acerca de Nosotros Section */
+.acerca_de_nosotros {
+    width: 50%; /* Adjust the width relative to the container */
+    max-width: 850px; /* Optional: keep a maximum width */
+    display: block;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.acerca_de_nosotros h2 {
+    font-family: manjari;
+    font-size: 1.5rem; /* Use relative units for font size */
+    font-weight: 700;
+    color: #333652;
+}
+
+.acerca_de_nosotros p {
+    font-family: manjari;
+    margin-top: 5px;
+    font-size: 1rem; /* Use relative units for font size */
+    text-align: justify;
+    color: #29577E;
+    font-weight: 700;
+}
+
+/* Add responsive design for smaller screens */
+@media (max-width: 768px) {
+    .acerca_de_nosotros {
+        width: 50%; /* Increase width percentage on smaller screens */
+    }
+    .acerca_de_nosotros h2 {
+        font-size: 1.25rem; /* Decrease font size for smaller screens */
+    }
+    .acerca_de_nosotros p {
+        font-size: 0.875rem; /* Decrease font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .acerca_de_nosotros {
+        width: 50%; /* Further adjust for very small screens */
+    }
+    .acerca_de_nosotros h2 {
+        font-size: 1rem; /* Further reduce font size */
+    }
+    .acerca_de_nosotros p {
+        font-size: 0.75rem;
+    }
+}
