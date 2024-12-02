@@ -197,7 +197,7 @@ body {
     .section__container.header__container {
         display: block;
         z-index: 10;
-        margin-top: 28px;
+        margin-top: 38px;
         margin-left: 10px;
         background-color: transparent;
         width: 350px;
@@ -281,7 +281,7 @@ body {
 @media (max-width: 768px) {
     .header {
         margin-top: 70px;
-        height: 60px; /* Consistent height for smaller screens */
+        height: 80px; /* Consistent height for smaller screens */
     }
 }
 
