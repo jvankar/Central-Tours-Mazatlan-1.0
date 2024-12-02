@@ -85,7 +85,7 @@ body {
     background-color: transparent;
     transition: transform 0.5s;
     z-index: 1100;
-    transform: translateY(-120%);
+    transform: translateY(-160%);
 }
 
 /* Show Navigation Links when open */
@@ -123,6 +123,98 @@ body {
 }
 
 /* ------------------- Media Queries ------------------- */
+
+/* For screens less than 768px */
+@media (max-width: 768px) {
+    /* Navigation links styling */
+    .nav_links {
+        align-items: flex-end;
+    }
+
+    .nav_links a {
+        font-size: 12px; /* Adjust font size for smaller screens */
+    }
+
+    /* Header Section */
+    .section__container.header__container {
+        display: block;
+        z-index: 10;
+        margin-top: 15px;
+        margin-left: 10px;
+        background-color: transparent;
+        width: 350px;
+        height: auto;
+        position: absolute;
+        left: -12px;
+    }
+
+    .section__container.header__container h1,
+    .section__container.header__container h2 {
+        display: block;
+        margin-left: 10px;
+        font-size: calc(10px + 1vw);
+    }
+
+    .section__container.header__container h2 {
+        font-size: calc(7px + 1vw);
+    }
+
+    /* Header Background */
+    .header {
+        margin-top: 93px; /* Ensure header does not overlap any other content */
+        height: 60px; /* Adjusted height for smaller screens */
+        background-color: #29577E; /* Ensure background is applied */
+    }
+
+    /* Responsive Acerca de Nosotros Section */
+    .acerca_de_nosotros {
+        width: 50%; /* Increase width percentage on smaller screens */
+    }
+    .acerca_de_nosotros h2 {
+        font-size: 1.25rem; /* Decrease font size for smaller screens */
+    }
+    .acerca_de_nosotros p {
+        font-size: 0.875rem; /* Decrease font size for smaller screens */
+    }
+}
+
+/* For exactly 768px width */
+@media (width: 768px) {
+    /* Force the header height to 80px */
+    .header {
+        margin-top: 0px;
+        height: 60px;
+    }
+
+    /* Adjust header container */
+    .section__container.header__container {
+        display: block;
+        z-index: 10;
+        margin-top: 1px;
+        margin-left: 10px;
+        background-color: transparent;
+        width: 350px;
+        height: auto;
+        position: absolute;
+        left: -12px;
+    }
+
+    .section__container.header__container h1,
+    .section__container.header__container h2 {
+        font-size: 18px; /* Consistent font size */
+        margin-left: 10px;
+        margin-top: 0; /* Ensure no extra top margin */
+    }
+
+    .section__container.header__container h2 {
+        font-size: 14px;
+    }
+
+    /* Nav Links Color */
+    .nav_links a {
+        font-size: 16px;
+    }
+}
 
 /* For screens larger than 768px */
 @media (min-width: 768px) {
@@ -181,111 +273,15 @@ body {
     }
 }
 
-/* For screens smaller than 768px */
-@media (max-width: 768px) {
-    /* Navigation links styling */
-    .nav_links {
-        align-items: flex-end;
-    }
-
-    .nav_links a {
-        color: #29577E; /* Keep links white for smaller screens */
-        font-size: 12px;
-    }
-
-    /* Header Section */
-    .section__container.header__container {
-        display: block;
-        z-index: 10;
-        margin-top: 38px;
-        margin-left: 10px;
-        background-color: transparent;
-        width: 350px;
-        height: auto;
-        position: absolute;
-        left: -12px;
-    }
-
-    .section__container.header__container h1,
-    .section__container.header__container h2 {
-        display: block;
-        margin-left: 10px;
-        font-size: calc(10px + 1vw);
-    }
-
-    .section__container.header__container h2 {
-        font-size: calc(7px + 1vw);
-    }
-
-    /* Header Background */
-    .header {
-        height: 150px;
-    }
-}
-
-/* For exactly 768px width */
-@media (width: 768px) {
-    /* Force the header height to 60px */
-    .header {
-        height: 60px !important;
-        width: 100% !important; /* Ensure full width */
-    }
-
-    /* Adjust header container */
-    .section__container.header__container {
-        display: block;
-        z-index: 10;
-        margin-top: 10px;
-        margin-left: 10px;
-        background-color: transparent;
-        width: 350px;
-        height: auto;
-        position: absolute;
-        left: -12px;
-    }
-
-    .section__container.header__container h1,
-    .section__container.header__container h2 {
-        font-size: 18px; /* Consistent font size */
-        margin-left: 10px;
-        margin-top: 0; /* Ensure no extra top margin */
-    }
-
-    .section__container.header__container h2 {
-        font-size: 14px;
-    }
-
-    /* Nav Links Color */
-    .nav_links a {
-        color: #29577E; /* Blue color for exactly 768px screen width */
-        font-size: 16px;
-    }
-}
-
 /* ------------------- Header Background Styles ------------------- */
 .header {
     background-color: #29577E;
-    height: 200px;
+    height: 55px;
     position: relative;
     width: 100%;
 }
 
-/* For screens larger than 768px */
-@media (min-width: 768px) {
-    .header {
-        height: 60px; /* Set a smaller height for larger screens */
-    }
-}
-
-/* For screens smaller than 768px */
-@media (max-width: 768px) {
-    .header {
-        margin-top: 70px;
-        height: 80px; /* Consistent height for smaller screens */
-    }
-}
-
-/* Responsive Acerca de Nosotros Section */
+/* ------------------- Responsive Acerca de Nosotros Section ------------------- */
 .acerca_de_nosotros {
     width: 50%; /* Adjust the width relative to the container */
     max-width: 850px; /* Optional: keep a maximum width */
@@ -308,19 +304,6 @@ body {
     text-align: justify;
     color: #29577E;
     font-weight: 700;
-}
-
-/* Add responsive design for smaller screens */
-@media (max-width: 768px) {
-    .acerca_de_nosotros {
-        width: 50%; /* Increase width percentage on smaller screens */
-    }
-    .acerca_de_nosotros h2 {
-        font-size: 1.25rem; /* Decrease font size for smaller screens */
-    }
-    .acerca_de_nosotros p {
-        font-size: 0.875rem; /* Decrease font size for smaller screens */
-    }
 }
 
 @media (max-width: 480px) {
