@@ -29,14 +29,18 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 2.55vw 0;
+    padding: 0;
+    margin: 0; /* Reset explícito */
+    height: 12vh;
+    min-height: 50px;
     z-index: 1000;
     background-color: #F8F0E2;
-    /* border-bottom: 1px solid rgba(51, 54, 82, 0.1);*/
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 15.27vw;
+    box-sizing: border-box;
+    border: none; /* Elimina bordes si existen */
+    box-shadow: none; /* Elimina sombras si existen */
 }
 
 .logo {
@@ -72,20 +76,23 @@ body {
 
 .nav_links {
     position: fixed;
-    top: 16.30vw;
+    top: 12vh; /* Perfectamente alineado con el header */
     left: 0;
     width: 0;
-    height: calc(100vh - 16vw);
+    height: calc(100vh - 12vh); /* Ajuste preciso del espacio disponible */
     background-color: white;
     box-shadow: 5px 0 15px rgba(0,0,0,0.1);
     flex-direction: column;
     align-items: center;
-    gap: 15px;
-    padding: 20px 0;
+    gap: 0; /* Eliminamos gap para control preciso del espaciado */
+    padding: 10px 0; /* Reducimos padding vertical */
+    margin: 0;
     z-index: 998;
     overflow-x: hidden;
+    overflow-y: auto;
     transition: width 0.5s ease;
     display: none;
+    box-sizing: border-box; /* Aseguramos que padding no afecte dimensiones */
 }
 
 .nav_links.open {
@@ -94,9 +101,9 @@ body {
 }
 
 .nav_links li {
-    list-style: none;
-    width: 80%;
-    margin: 0 auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .nav_links a {
@@ -104,14 +111,17 @@ body {
     color: var(--color-text);
     font-family: 'Manjari', sans-serif;
     font-weight: 700;
-    font-size: 2.3vw;
+    font-size: clamp(14px, 2.3vw, 18px); /* Tamaño responsive con límites */
     transition: var(--transition-base);
     display: block;
-    padding: 1.5vw 2.5vw;
+    padding: 12px 0; /* Padding fijo en px (mejor control) */
+    margin: 4px 10%; /* Margen controlado */
     border-radius: 10px;
     background: white;
     box-shadow: var(--shadow-sm);
     text-align: center;
+    width: 80%; /* Ancho consistente */
+    box-sizing: border-box; /* Padding incluido en el ancho */
 }
 
 .nav_links a:hover {
@@ -119,6 +129,7 @@ body {
     background: var(--color-primary);
     box-shadow: var(--shadow-md);
     transform: translateY(-2px);
+    margin: 4px 10%; /* Mantener margen durante hover */
 }
 
 /* ===== COMPONENTE: CARRUSEL ===== */
@@ -288,22 +299,30 @@ body {
 /* ===== MEDIA QUERIES ===== */
 /* Móvil (≤768px) */
 @media (max-width: 768px) {
+    .carousel-wrapper {
+        margin-top: 12vh; /* Ajuste clave: compensa altura del header */
+    }
+    
     .carousel-track-container {
-        height: 100vw;
+        height: 100vw; /* Mantiene relación aspecto cuadrada */
+        margin-top: 0; /* Elimina márgenes conflictivos */
     }
     
     .carousel-slide {
-        height: 100vw;
+        height: 100vw; /* Conserva dimensiones originales */
     }
     
+    /* Botones e indicadores (opcional) */
     .carousel-button img {
         width: 10vw;
         height: 10vw;
+        margin-top: -5vw; /* Centrado vertical mejorado */
     }
     
     .carousel-indicator {
         width: 4vw;
         height: 4vw;
+        bottom: 3vh; /* Posición desde abajo en vh */
     }
     
     .motto-image {
@@ -315,17 +334,17 @@ body {
 @media (min-width: 769px) {
   /* HEADER */
   .nav__header {
-      height: 6vw;
-      padding: 1.5vw 5%;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      background-color: #F8F0E2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
+    height: 14vh; /* Cambiado de 6vw a 6vh */
+    padding: 1.5vh 5%; /* Cambiado el padding vertical de 1.5vw a 1.5vh */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #F8F0E2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
   
   .logo {
       position: absolute;
@@ -355,7 +374,7 @@ body {
   /* NAVIGATION CONTAINER - FIXED SECTION */
   .nav_links_container {
       position: fixed;
-      top: 9vw;
+      top: 14vh;
       left: 0;
       width: 100%;
       background-color: #29577E;
@@ -364,7 +383,7 @@ body {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 4vw; 
+      height: 5.5vh; 
       box-sizing: border-box;
   }
   
@@ -414,37 +433,51 @@ body {
   
   /* CARRUSEL */
   .carousel-wrapper {
-      margin-top: 12vw !important; /* 80px header + 60px nav */
+      margin-top: 19.5vh !important; /* 80px header + 60px nav */
   }
   
   .carousel-track-container {
-      height: 35vw;
+      height: 40vh;
       max-height: 600px;
   }
 }
 
 /* Pantallas grandes (≥1600px) */
 @media (min-width: 1600px) {
-  .nav__header {
-    height: 5vw; /* Se hace más pequeño proporcionalmente */
-    max-height: 80px; /* Límite máximo */
-}
-  .nav_links {
-      gap: 20px;
+    /* HEADER */
+    .nav__header {
+      height: 10vh; /* Reducción proporcional (antes 14vh) */
+      padding: 1vh 5%; /* Padding más compacto */
+    }
+  
+    /* LOGO */
+    .logo-image {
+      width: 10vw; /* Logo un poco más pequeño */
+      max-width: 160px; /* Ajuste del máximo */
+    }
+  
+    /* NAVIGATION CONTAINER */
+    .nav_links_container {
+      top: 10vh; /* Ajuste acorde al nuevo header (10vh) */
+      height: 4.5vh; /* Altura reducida (antes 5.5vh) */
+    }
+  
+    /* NAV LINKS */
+    .nav_links {
+      gap: 20px; /* Más espacio entre links */
+    }
+  
+    .nav_links a {
+      font-size: 1.1rem; /* Tamaño fijo (o usa clamp() para escalabilidad) */
+      padding: 10px 20px; /* Botones más grandes */
+    }
+  
+    /* CARRUSEL */
+    .carousel-wrapper {
+      margin-top: calc(10vh + 4.5vh) !important; /* 10vh (header) + 4.5vh (nav) */
+    }
+  
+    .carousel-track-container {
+      height: 45vh; /* Más alto en pantallas grandes */
+    }
   }
-  
-  .nav_links a {
-      font-size: 17px;
-      padding: 10px 20px;
-  }
-  
-  .nav_links_container {
-    top: 7.5vw;
-    height: 3.5vw;
-    max-height: 65px;
-}
-  
-.carousel-wrapper {
-  margin-top: 10.5vw !important; /* Reducir de 12.5vw */
-} 
-} 
