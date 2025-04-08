@@ -1,116 +1,105 @@
 <!DOCTYPE html>
-<!-- Declares the document type as HTML5, which helps browsers render the page correctly. -->
-
 <html lang="es">
-<!-- Opens the HTML document and sets the language to Spanish ('es'). -->
-
 <head>
-    <!-- The head section contains meta-information about the document. -->
-
     <meta charset="UTF-8">
-    <!-- Specifies the character encoding as UTF-8 to support all characters in the document. -->
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Ensures the page is responsive and adjusts its size to fit the device's screen width. -->
-
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Specifies that the page should use the latest rendering engine available in Internet Explorer. -->
-
     <title>Central Tours Mazatlán</title>
-    <!-- Sets the title of the web page that appears in the browser tab. -->
-
-    <link
-        href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-        rel="stylesheet"
-    />
-    <!-- Links to an external CSS file (Remix Icon library) to include icons in the website. -->
-
-    <link rel="stylesheet" href="styles.css">
-    <!-- Links to an external CSS file (styles.css) to style the website. -->
-
+    <link rel="stylesheet" href="styles-central_tours.css">
+    <!-- Preload para optimización -->
+    <link rel="preload" href="material/whatsapp-icon.json" as="fetch" crossorigin="anonymous">
+    <!-- Estilo inline temporal para debug -->
+    <style>
+        /* Debug temporal - puede eliminarse después 
+        .nav_links_container.debug {
+            border: 2px solid red !important;
+        }
+        .nav_links.debug {
+            border: 2px solid lime !important;
+            background-color: rgba(0,255,0,0.1) !important;
+        } 
+        .nav_links li.debug {
+            border: 1px dashed yellow !important;
+        }
+        .nav_links a.debug {
+            background-color: rgba(0,0,255,0.1) !important;
+            border: 1px solid white !important;
+        } */
+    </style>
 </head>
-
 <body>
-    <!-- The body section contains the content of the webpage that will be visible to users. -->
-
     <nav>
-        <!-- Navigation bar section -->
-
         <div class="nav__header">
-            <!-- Contains the logo and menu button. -->
-
             <div class="logo">
-                <!-- The logo container. -->
-
                 <a href="#">
-                    <!-- Link to the homepage (though '#' typically doesn't link anywhere). -->
-
-                    <img src="logo_CTMazatlan.png" alt="Central Tours Mazatlán Logo" class="logo-image">
-                    <!-- The logo image with alternative text in case the image doesn't load. -->
+                    <img src="material/logo_faro.svg" alt="Central Tours Mazatlán Logo" class="logo-image">
                 </a>
             </div>
-
-            <div class="nav_menu_button" id="menu-button">
-                <!-- Button to toggle the navigation menu (likely for mobile view). -->
-
-                <i class="ri-menu-line"></i>
-                <!-- An icon representing a menu (from the Remix Icon library). -->
+            <div class="motto">
+                <a href="#">
+                    <img src="material/motto.svg" alt="¡Conoce Mazatlán como un local! Todos los tours en un sólo lugar" class="motto-image">
+                </a>
             </div>
-
+            <div class="whatsapp_button">
+                <a href="#" id="whatsapp-link">
+                    <div id="lottie-whatsapp"></div>
+                </a>
+            </div>
+            <div class="nav_menu_button" id="menu-button">
+                <img src="material/menu_button.svg" alt="Abrir menú" class="menu-icon">
+            </div>
         </div>
-
-        <ul class="nav_links" id="nav-links">
-            <!-- Unordered list containing the navigation links. -->
-
-            <li><a href="#inicio">INICIO</a></li>
-            <!-- Link to the "Inicio" section (Home) of the page. -->
-
-            <li><a href="#paseos">PASEOS</a></li>
-            <!-- Link to the "Paseos" section (Tours) of the page. -->
-
-            <li><a href="#actividades">ACTIVIDADES</a></li>
-            <!-- Link to the "Actividades" section (Activities) of the page. -->
-
-            <li><a href="#hospedajes">HOSPEDAJES</a></li>
-            <!-- Link to the "Hospedajes" section (Accommodations) of the page. -->
-
-            <li><a href="#galeria">GALERIA</a></li>
-            <!-- Link to the "Galeria" section (Gallery) of the page. -->
-
-        </ul>
-
-        <script src="main.js"></script>
-        <!-- Links to an external JavaScript file (main.js) to add functionality, such as menu toggling. -->
+        <div class="nav_links_container debug"> <!-- Clase debug añadida -->
+            <ul class="nav_links debug" id="nav-links"> <!-- Clase debug añadida -->
+                <li class="debug"><a href="#inicio" class="debug" title="Inicio | Mazatlán" aria-label="Ir a sección Inicio">INICIO</a></li>
+                <li class="debug"><a href="#quienes-somos" class="debug" title="Conoce sobre nosotros" aria-label="Ir a Quiénes Somos">¿QUIÉNES SOMOS?</a></li>
+                <li class="debug"><a href="#que-hacer" class="debug" title="Actividades en Mazatlán" aria-label="Ir a Qué hacer en Mazatlán">¿QUÉ HACER EN MAZATLÁN?</a></li>
+                <li class="debug"><a href="#tours-paseos" class="debug" title="Tours y paseos turísticos" aria-label="Ir a Tours">TOURS</a></li>
+                <li class="debug"><a href="#paquetes" class="debug" title="Paquetes turísticos" aria-label="Ir a Paquetes">PAQUETES</a></li>
+                <li class="debug"><a href="#yates-pesca" class="debug" title="Yates de lujo y pesca deportiva" aria-label="Yates y viajes de pesca">YATES & PESCA</a></li>
+                <li class="debug"><a href="#transportes" class="debug" title="Servicios de transporte" aria-label="Ir a Transportes">TRANSPORTES</a></li>
+                <li class="debug"><a href="#hospedajes" class="debug" title="Hospedajes en Mazatlán" aria-label="Ir a Hospedajes">HOSPEDAJES</a></li>
+                <li class="debug"><a href="#reservaciones" class="debug" title="Reservaciones en línea" aria-label="Ir a Reservaciones">RESERVACIONES</a></li>
+                <li class="debug"><a href="#contacto" class="debug" title="Contacto y ubicación" aria-label="Ir a Contacto">CONTACTO</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <header class="header" id="home">
-        <!-- Header section of the webpage, typically for introductory content. -->
-
-        <div class="section__container header__container">
-            <!-- Container for organizing the header content. -->
-
-            <h1>¡Conoce Mazatlán como un local!</h1>
-            <!-- Main heading encouraging users to discover Mazatlán like a local. -->
-
-            <h2> Todos los tours en un solo lugar.</h2>
-            <!-- Secondary heading promoting the idea that all tours are available in one place. -->
-
+    <!-- Carrusel -->
+    <div class="carousel-wrapper">
+        <div class="carousel-container">
+            <div class="carousel-track-container">
+                <ul class="carousel-track">
+                    <li class="carousel-slide current-slide">
+                        <img src="material/slide-1.webp" alt="Tour en barco por Mazatlán">
+                    </li>
+                    <li class="carousel-slide">
+                        <img src="material/slide-2.webp" alt="Atardecer en playa Mazatlán">
+                    </li>
+                    <li class="carousel-slide">
+                        <img src="material/slide-3.webp" alt="City tour Mazatlán">
+                    </li>
+                </ul>
+            </div>
+            
+            <button class="carousel-button carousel-button-left">
+                <img src="material/arrow-left.svg" alt="Anterior">
+            </button>
+            <button class="carousel-button carousel-button-right">
+                <img src="material/arrow-right.svg" alt="Siguiente">
+            </button>
+            
+            <div class="carousel-nav">
+                <button class="carousel-indicator current-slide"></button>
+                <button class="carousel-indicator"></button>
+                <button class="carousel-indicator"></button>
+            </div>
         </div>
+    </div>
 
-    </header>
-   
-    <section class="acerca_de_nosotros" id="acercade">
-        <h2>Acerca de nosotros</h2>
-        <p>En Central Tours Mazatlán, te ofrecemos experiencias únicas para descubrir playas, tradiciones y rincones inolvidables. Vive la verdadera esencia de Mazatlán como un local.</p>
-        <p>¿Listo para una aventura inolvidable? Tu satisfacción es nuestra prioridad. ¡Ven y descubre lo mejor de Mazatlán con nosotros!</p>
-      </section>
-      
-
+    <!-- Scripts (orden crítico) -->
+    <script src="js-central_tours.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+    <script src="whatsapp-lottie.js" defer></script>
 </body>
-
 </html>
-
-
-
-
-
